@@ -21,3 +21,12 @@
 
 ## Set Gobal_active_power as numeric class
      powerconsumptionsubset$Global_active_power <- as.numeric(powerconsumptionsubset$Global_active_power)
+
+## Create a png file title "plot1.png" with width 480 of pixels and height of 480 pixels
+     png("plot1.png", width = 480, height = 480)
+     
+     ### Plot the histogram with set parameters
+          hist(powerconsumptionsubset$Global_active_power, main="Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col="red")
+     
+     ### Close graphic device
+          dev.off()
