@@ -26,3 +26,8 @@
      ### Change dates under the Time column to reflect the correct dates
           powerconsumptionsubset[1:1440, "Time"] <- format(powerconsumptionsubset[1:1440, "Time"],"2007-02-01 %H:%M:%S")
           powerconsumptionsubset[1441:2880, "Time"] <- format(powerconsumptionsubset[1441:2880, "Time"],"2007-02-02 %H:%M:%S")
+
+## Set sum_metering columns as a numeric class
+     powerconsumptionsubset$Sub_metering_1 <- as.numeric(powerconsumptionsubset$Sub_metering_1)
+     powerconsumptionsubset$Sub_metering_2 <- as.numeric(powerconsumptionsubset$Sub_metering_2)
+     powerconsumptionsubset$Sub_metering_3 <- as.numeric(powerconsumptionsubset$Sub_metering_3)
