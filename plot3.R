@@ -31,3 +31,15 @@
      powerconsumptionsubset$Sub_metering_1 <- as.numeric(powerconsumptionsubset$Sub_metering_1)
      powerconsumptionsubset$Sub_metering_2 <- as.numeric(powerconsumptionsubset$Sub_metering_2)
      powerconsumptionsubset$Sub_metering_3 <- as.numeric(powerconsumptionsubset$Sub_metering_3)
+
+# Create a png file titled "plot3.png" with width 480 of pixels and height of 480 pixels
+     png("plot3.png", width = 480, height = 480)
+
+     ### Plot the graph with set parameters
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_1, type="l", col = "black", xlab = "", ylab = "Energy sub metering")
+          lines(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_2, type="l", col = "red")
+          lines(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_3, type="l", col = "blue")
+          legend("topright", c("sub_metering_1", "sub_metering_2", "sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+
+     ### Close graphic device
+          dev.off()
