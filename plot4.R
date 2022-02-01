@@ -33,3 +33,27 @@
      ### Change dates under the Time column to reflect the correct dates
           powerconsumptionsubset[1:1440, "Time"] <- format(powerconsumptionsubset[1:1440, "Time"],"2007-02-01 %H:%M:%S")
           powerconsumptionsubset[1441:2880, "Time"] <- format(powerconsumptionsubset[1441:2880, "Time"],"2007-02-02 %H:%M:%S")
+
+# Create a png file titled "plot4.png" with width 480 of pixels and height of 480 pixels
+     png("plot4.png", width = 480, height = 480)
+
+     ### Create a graphic view that will display 4 graphs row-wise
+          par(mfrow = c(2,2))
+
+     ### Plot the graph with set parameters, which will be viewed in the top left corner
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type="l")
+
+     ### Plot the graph with set parameters, which will be viewed in the top right corner
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Voltage, xlab = "datetime", ylab = "Voltage", type = "l")
+   
+     ### Plot the graph with set parameters, which will be viewed in the bottom left corner
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_1, type="l", col = "black", xlab = "", ylab = "Energy sub metering")
+          lines(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_2, type="l", col = "red")
+          lines(powerconsumptionsubset$Time, powerconsumptionsubset$Sub_metering_3, type="l", col = "blue")
+          legend("topright", c("sub_metering_1", "sub_metering_2", "sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+
+     ### Plot the graph with set parameters, which will be viewed in the bottom right corner
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Global_reactive_power, xlab = "datetime", ylab = "Global_reactive_power", type = "l")
+
+     ### Close graphic device
+          dev.off()
