@@ -18,3 +18,11 @@
 
      ### Subset data for dates 1/2/2007 and 2/2/2007 (two-day period)
           powerconsumptionsubset <- subset(householdpowerconsumption, householdpowerconsumption$Date =="1/2/2007" | householdpowerconsumption$Date=="2/2/2007")
+
+## Format Time and Date using strptime() and as.Date(), respectively
+     powerconsumptionsubset$Time <- strptime(powerconsumptionsubset$Time, format = "%H:%M:%S")
+     powerconsumptionsubset$Date <- as.Date(powerconsumptionsubset$Date, format = "%d/%m/%Y")
+     
+     ### Change dates under the Time column to reflect the correct dates
+          powerconsumptionsubset[1:1440, "Time"] <- format(powerconsumptionsubset[1:1440, "Time"],"2007-02-01 %H:%M:%S")
+          powerconsumptionsubset[1441:2880, "Time"] <- format(powerconsumptionsubset[1441:2880, "Time"],"2007-02-02 %H:%M:%S")
