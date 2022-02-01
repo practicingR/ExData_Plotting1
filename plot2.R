@@ -29,3 +29,15 @@
      ### Change dates under the Time column to reflect the correct dates
           powerconsumptionsubset[1:1440, "Time"] <- format(powerconsumptionsubset[1:1440, "Time"],"2007-02-01 %H:%M:%S")
           powerconsumptionsubset[1441:2880, "Time"] <- format(powerconsumptionsubset[1441:2880, "Time"],"2007-02-02 %H:%M:%S")
+
+# Create a png file titled "plot2.png" with width 480 of pixels and height of 480 pixels
+     png("plot2.png", width = 480, height = 480)
+
+     ### Plot the graph with set parameters
+          plot(powerconsumptionsubset$Time, powerconsumptionsubset$Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type="l")
+
+     ### Close graphic device
+          dev.off()
+
+
+
