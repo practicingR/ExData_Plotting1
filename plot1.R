@@ -18,3 +18,6 @@
 
      ### Subset data for dates 1/2/2007 and 2/2/2007 (two-day period)
           powerconsumptionsubset <- subset(householdpowerconsumption, householdpowerconsumption$Date =="1/2/2007" | householdpowerconsumption$Date=="2/2/2007")
+
+## Set Gobal_active_power as numeric class
+     powerconsumptionsubset$Global_active_power <- as.numeric(powerconsumptionsubset$Global_active_power)
