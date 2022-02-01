@@ -12,3 +12,9 @@
        if(!file.exists("Course 4")){
           unzip(householdpowerconsumption)
         }
+
+## Read the file
+     householdpowerconsumption <- read.table("household_power_consumption.txt", header = TRUE, sep = ";")
+
+     ### Subset data for dates 1/2/2007 and 2/2/2007 (two-day period)
+          powerconsumptionsubset <- subset(householdpowerconsumption, householdpowerconsumption$Date =="1/2/2007" | householdpowerconsumption$Date=="2/2/2007")
